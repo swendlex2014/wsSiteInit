@@ -1,0 +1,170 @@
+$dash_width : 98%;
+$input_radius : 2px;
+
+
+$title_margin : 13px;
+
+$exam_icon_line_margin : 3px;
+
+.circular {
+	border-radius: 50%;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.center {
+	text-align: center;
+}
+
+.entrance-item, .exam-item {
+	cursor: pointer;
+	img{
+		width: 25px;
+		padding-top: 7px;
+	}
+	h4{ font-size: 1em;}
+	p{ font-size: .5em;}
+}
+
+.exam-item {
+	hr {
+		margin: $exam_icon_line_margin 0 $exam_icon_line_margin 0;
+	}
+	img {
+		padding-top: 10px;
+		width: 90%;
+	}
+	.info{
+		margin-top: 3px;
+		img {
+			width: 15px;
+			margin-top: -9px;
+		}
+		span {
+			font-size: .7em;
+		}
+	}
+}
+
+.selected {
+	h4{ 
+		font-size: 1em;
+		color : black;
+	}
+	p{ font-size: .7em;}
+}
+
+.demoSWFHolder, .demoSmallSWFHolder {
+	width: 100%;
+	background: gray;
+	margin : 20px 0 20px 0;
+}
+
+.demoSWFHolder{
+	height : 500px;
+}
+
+.demoSmallSWFHolder {
+	height: 120px;
+}
+
+.entrance-view, .student-view{
+	img {
+		width: 40px;
+		float: right;
+		cursor: pointer;
+	}
+	.stats {
+		margin: 15px 0 5px 0;
+		font-size : .6em;
+	}
+}
+
+p.demo{
+	margin-top: 50px;
+	font-size: .5em;
+}
+
+.contact-left input[type="text"] {
+	width: 100%;
+	margin: 0px auto 20px;
+	color: #111;
+	background: none;
+	padding: 10px 7px;
+	outline: none;
+	border: 1px solid #BCBCBC;
+	border-radius: $input_radius;
+	-webkit-border-radius: $input_radius;
+	-moz-border-radius: $input_radius;
+	-o-border-radius: $input_radius;
+	-ms-border-radius: $input_radius;
+}
+
+.demo-container {
+	padding-top: 125px;
+	padding-bottom: 155px;
+	background: #f3f0e7;
+	min-height: 100%;
+}
+
+.dashboard-container {
+	padding: 30px;
+	background: #f3f0e7;
+	min-height: 100%;
+}
+
+.dashboard-title {
+	font-size: 1.3em;
+	margin: $title_margin 0 $title_margin 0;
+}
+
+.dashboard-title-side {
+	font-size: 1.3em;
+	margin: 0 0 $title_margin 0;
+}
+.overlay-simplegenie {
+	cursor: pointer;
+}
+
+.modal_elems {
+	display : inline-block;
+	width: 100%;
+}
+
+.dashboard {
+	margin: (100% - $dash_width) / 2;
+	width: 100%;
+
+	.item{
+		cursor: pointer;
+		display: inline-block;
+		margin: 0;
+		width: $dash_width / 6;
+		text-align: center;
+		border-radius: 3px;
+		.box{
+			width: 88%;
+			padding: 3%;
+			margin-bottom: 8px;
+			background: #EEE;
+			.indicator {
+				margin: 0 auto 8% auto;
+				width: 70%;
+				display: block;
+			}
+			.stats {
+				img {
+					width: 10%;
+				}
+				span{
+					font-size: 8px;
+				}
+				div {
+					display: inline;
+				}
+			}
+		}
+
+	}
+}
