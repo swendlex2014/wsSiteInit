@@ -1,7 +1,6 @@
 module.exports = function(app, io, express, port){
 	var path = require("path");
-
-	// Set .html as the default template extension
+	/// Set .html as the default template extension
 	app.set('view engine', 'html');
 
 	// Initialize the ejs template engine
