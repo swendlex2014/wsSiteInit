@@ -1,5 +1,4 @@
 (function(Ractive, $){
-	var app = window.appConfig; 
 	//  Socket connection to enable real-time communication with other clients
 	// var socket = app.getSocket();
 	// Initiaze Dynamic Data binding
@@ -19,12 +18,10 @@
 	function handleSampleClick(){
 		console.log("Click is Handle");
 	}
-	// Socket Handler
-	// socket.on('toClient', function(data){
-	// 	console.dir(data);
-	// });
-(function() {
-	console.log("Done");
-})();
+
+	(function() {
+		console.log("Done");
+		$.app.init();
+	})();
 
 })(Ractive, $);

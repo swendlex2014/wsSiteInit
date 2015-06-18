@@ -279,7 +279,7 @@ grunt.registerTask("config", "Finds and prepares templates.", function() {
       vars += obj;
       config += "," + fileName + ":" + fileName;
     };
-    config = vars + config + "};(function($){ window.appConfig = appConfig;})($);";
+    config = vars + config + "};(function($){ $.app = appConfig;})($);";
     grunt.file.write(destination + '/js/appConfig.js', config);
     console.log("Configuration file generated!");
   });
