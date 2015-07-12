@@ -9,7 +9,6 @@ module.exports = function(grunt) {
  var nodeFolder = 'node';
  var modRewrite = require('connect-modrewrite');
 
-
     // Display the execution time when tasks are run:
     require('time-grunt')(grunt);
 
@@ -115,6 +114,12 @@ grunt.registerTask("wsWatch", "Watch source files and run appropriate commands",
    options: {livereload: true, spawn: false}
  });
 
+  grunt.config.set('watch.scssFolders', { 
+   files: [source + '/style/**/*.scss'], 
+   tasks: ['wsSass'], 
+   options: {livereload: true, spawn: false}
+ });
+
   grunt.file.expand([source + '/ractive/*', source + '/script/*']).forEach(function (path){
     var fileName = path.substr(path.lastIndexOf('/')+1);
     fileName = fileName.substr(0, fileName.length - 3);
@@ -133,8 +138,7 @@ grunt.registerTask("wsWatch", "Watch source files and run appropriate commands",
 
   grunt.file.expand([source + '/indexer/*']).forEach(function (path){
     var fileName = path.substr(path.lastIndexOf('/')+1);
-    var subName = fileName.substr(0, fileName.length - 3);
-
+    var subName = fileName.substr(0, fileName.length - 5);
     grunt.config.set('copy.' + subName, {
      src: path,
      dest: destination + "/" + fileName
@@ -315,10 +319,11 @@ grunt.registerTask("wsSass", "Compile and process scss files", function(){
 
 require('matchdep').filterDev('grunt-*','package.json').forEach(grunt.loadNpmTasks);
 grunt.registerTask('prodCode', ['config', 'wsMinifyJS', 'clean:js']);
-grunt.registerTask('ws', ['wsRactive', 'wsTemplates', 'wsReplace'])
+grunt.registerTask('ws', ['wsRactive', 'wsTemplates', 'wsReplace']);
 grunt.registerTask('ractive', ['copy:index', 'ws']);
+grunt.registerTask('prod0', ['copy', 'wsSass', 'ractive', 'prodCode', 'wsWatch', 'cssmin']);
 grunt.registerTask('prod', ['copy', 'wsSass', 'ractive', 'prodCode', 'wsWatch', 'cssmin', 'cleanBuild']);
+grunt.registerTask('cleanBuild', ['clean:temp', 'clean:css', 'clean:js']);
 grunt.registerTask('default', ['prod', 'connect', 'watch']);
-grunt.registerTask('cleanBuild', ['clean:temp', 'clean:css', 'clean:js'])
 grunt.registerTask('start', ['prod' ,'connect'])
 };
