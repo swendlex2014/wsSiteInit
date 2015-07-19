@@ -33,7 +33,7 @@
   }, 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "grunt",
+    "start" : "git add . && git commit -m \"latest changes\" && git push && grunt",
     "live" : "grunt start"
   }
 }
